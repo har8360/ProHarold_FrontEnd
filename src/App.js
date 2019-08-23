@@ -1,8 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Counter from './Counter/Counter';
+//import Body2 from './Counter/Counter2';
+
 
 function App() {
+  const dialogText = "text goes here..";
   return (
     <div className="App">
       <header className="App-header">
@@ -19,6 +23,8 @@ function App() {
           Learn React
         </a>
       </header>
+      <Counter txt={dialogText}>
+      </Counter>
     </div>
   );
 }
