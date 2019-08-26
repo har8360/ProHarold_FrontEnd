@@ -16,12 +16,20 @@ const Counter = (props) => {
     //.then(response=>console.log(response))
   };
 
+  const handleResetClick = ()=>{
+    setCount(0);
+    setMsg("React Counter");
+  }
+  const handleCounterClick = ()=>{
+    setCount(count + 1);
+  }
+
   return (
     <CounterWrapper>
       <MessageDisplayer>{msg} </MessageDisplayer>
         <CountsDisplay>You clicked {count} times</CountsDisplay>
-        <CounterButton onClick={() => setCount(count + 1)}>Click me</CounterButton>
-        <CounterButton onClick={() => setCount(0)}>Reset</CounterButton>
+        <CounterButton onClick={handleCounterClick}>Click me</CounterButton>
+        <CounterButton onClick={handleResetClick}>Reset</CounterButton>
         <CounterButton primary onClick={getData}>Get a msg</CounterButton>
     </CounterWrapper>
   );
