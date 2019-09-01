@@ -4,7 +4,7 @@ import MessageDisplayer from "./MessageDisplayer";
 import CountsDisplay from "./CountsDisplay";
 import CounterButton from "./CounterButton";
 
-const Counter = (props) => {
+const Counter = () => {
   const [count, setCount] = useState(0);
   const [msg, setMsg] = useState("React Counter");
 

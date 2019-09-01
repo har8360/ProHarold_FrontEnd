@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Counter from './Counter/Counter';
+import Palindromo from './Palindromo/Palindromo';
 //import Body2 from './Counter/Counter2';
 
 
@@ -25,6 +26,7 @@ function App() {
       </header>
       <Counter txt={dialogText}>
       </Counter>
+      <Palindromo></Palindromo>
     </div>
   );
 }
