@@ -7,28 +7,35 @@ import SubmitButtonPalindromo from "./SubmitButtonPalindromo";
 
 const Palindromo = () => {
   const [palabra, setPalabra] = useState("");
+  const [msg, setMsg] = useState("");
   const handlePalabraChange = (e) => {
     setPalabra(e.target.value);
   }
   console.log(palabra);
   
-  const onSubmitPalabra = () => {
+  const onSubmitPalabra = (event) => {
+    event.preventDefault();
     fetch("http://localhost:3001/esPalindromo",{
-      method: 'post',
-      body: palabra
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body:JSON.stringify({palabra : palabra})
     })
-      .then(response => response.json())
-      .then(response => setPalabra(response.palindromoMsg));
+      .then((res) => res.json())
+      .then((res) => setMsg(res.result))
+      .catch((err)=> console.log(err))
     //.then(response=>console.log(response))
+    
   };
-
-
+  
   return (
     <PalindromoWrapper>
         <MessageDisplay>Palindromo React App</MessageDisplay>
         <PalidromoInput placeholder="Introduzca una palabra" type="text" onChange={handlePalabraChange} />
         <SubmitButtonPalindromo primary onClick={onSubmitPalabra}>Submit</SubmitButtonPalindromo>
-        <MessageDisplay2>{}</MessageDisplay2>
+        <MessageDisplay2>{msg}</MessageDisplay2>
     </PalindromoWrapper>
   );
 };
