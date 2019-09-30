@@ -27,7 +27,6 @@ const Palindromo = () => {
       .then((res) => setMsg(res.result))
       .catch((err)=> console.log(err))
     //.then(response=>console.log(response))
-    
   };
   
   return (

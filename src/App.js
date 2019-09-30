@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Counter from './Counter/Counter';
 import Palindromo from './Palindromo/Palindromo';
+import UserFormMain from './UserForm/_UserFormMain';
 //import Body2 from './Counter/Counter2';
 
 
@@ -27,6 +28,7 @@ function App() {
       <Counter txt={dialogText}>
       </Counter>
       <Palindromo></Palindromo>
+      <UserFormMain></UserFormMain>
     </div>
   );
 }
