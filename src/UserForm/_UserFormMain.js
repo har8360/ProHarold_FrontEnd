@@ -19,6 +19,21 @@ const UserFormMain = () => {
     console.log(firstName);
     console.log(lastName);
 
+    const onSubmitUserForm = (event) => {
+        event.preventDefault();
+        fetch("http://localhost:3001/user",{
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body:JSON.stringify({firstName : firstName, lastName : lastName})
+        })
+          .then((res) => res.json())
+          .catch((err)=> console.log(err))
+        //.then(response=>console.log(response))
+      };
+
     return (
         
         <UserFormWrapper>
@@ -27,7 +42,7 @@ const UserFormMain = () => {
                 <UserForm>
                     <UserFirstNameInput placeholder="First Name" type="text" onChange={onFirstNameChange}></UserFirstNameInput>
                     <UserLastNameInput placeholder="Last Name" type="text" onChange={onLastNameChange}></UserLastNameInput>
-                    <UserSubmitButton>Submit</UserSubmitButton>
+                    <UserSubmitButton onClick={onSubmitUserForm}>Submit</UserSubmitButton>
                 </UserForm>
             </UserFormContainer>
         </UserFormWrapper>
